@@ -15,8 +15,14 @@ pip install coverage
 Inside of the main project directory run the following command.
 
 ```
-python app/Main.py
+python app/Main.py {input_file_name} {export_file_name} {number_of_top_results}
 ```
+
+As an example:
+```
+python app/Main.py driverTimes.csv results.csv 3
+```
+Will extract data using the driverTimes.csv file, calculate the average driving times, and export the top 3 times to the results.csv file.
 
 ## Running the tests
 

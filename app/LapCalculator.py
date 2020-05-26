@@ -5,7 +5,7 @@ def getTopDrivers(importFile, exportFile, n):
     raw_data = ingestCSVData(importFile)
     averages = calculateAvgs(raw_data)
     top = topN(averages, n)
-    exportComplete = exportCSVData(top, exportFile)
+    return exportCSVData(top, exportFile)
 
 # Ingest data from CSV file
 # Params: csv filename
