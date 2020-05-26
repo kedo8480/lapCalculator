@@ -5,14 +5,14 @@ from lapCalculator.LapCalculator import *
 class TestLapCalculatorMethods(unittest.TestCase):
 
     def test_ingestData(self):
-        result = ingestCSVData("testfile1.csv")
+        result = ingestCSVData("test_importfile1.csv")
 
         ingested_data = {"Hamilton": [4.45, 4.22, 4.42], "Knope": [4.33, 4.55, 3.98], "Sabine": [3.99, 5.00, 4.00]}
 
         self.assertDictEqual(result, ingested_data)
 
     def test_ingestData_empty(self):
-        with self.assertRaises(Exception): ingestCSVData("emptytestfile.csv")
+        with self.assertRaises(Exception): ingestCSVData("test_emptyfile.csv")
 
     def test_calculateAvgs(self):
         test_data = {"driver1": [2.2, 2.2, 2.2], "driver2": [2.306, 4.447, 6.891], "driver3": [3, 6, 9]}
@@ -45,7 +45,7 @@ class TestLapCalculatorMethods(unittest.TestCase):
     def test_exportCSVData(self):
         top_list = [["smith", 4.44], ["granny", 8.79], ["apple", 3.41]]
 
-        result = exportCSVData(top_list, "testexportfile.csv")
+        result = exportCSVData(top_list, "test_exportfile.csv")
         self.assertTrue(result)
 
 
