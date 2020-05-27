@@ -15,8 +15,11 @@ def getTopDrivers(import_file, export_file, n):
 def ingestCSVData(filename):
     data = {}
 
+    if not os.path.exists(filename):
+        raise Exception("Input File does not exist.")
+
     if os.path.getsize(filename) == 0:
-        raise Exception("Input File was empty")
+        raise Exception("Input File was empty.")
 
     with open(filename) as csv_read_file:
         csv_reader = csv.reader(csv_read_file, delimiter=',')
@@ -49,13 +52,19 @@ def calculateAvgs(data):
 # Params: Dictionary of average lap times {lastname: avgTime} and n for top n times
 # Returns: List of top n lap times [[lastname, time]...]
 def topN(data, n):
-    sorted_averages = sorted(data.items(), key=lambda x: x[1])
+    if len(data) < n:
+        raise Exception("This data has less than " + str(n) + " drivers. Insufficient data set.")
 
-    topLapTimes = []
+    print(data)
+
+    sorted_averages = sorted(data.items(), key=lambda x: (x[1], x[0]))
+    print(sorted_averages)
+
+    top_lap_times = []
     for i in range(0, n):
-        topLapTimes.append([sorted_averages[i][0], sorted_averages[i][1]])
+        top_lap_times.append([sorted_averages[i][0], sorted_averages[i][1]])
 
-    return topLapTimes
+    return top_lap_times
 
 
 # Export top N drivers to CSV file
