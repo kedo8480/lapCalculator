@@ -49,3 +49,8 @@ Then, run the following command to see the coverage report.
 ```
 coverage report -m
 ```
+
+Running the following will create an html "pretty print" test result file.
+```
+coverage html
+```
