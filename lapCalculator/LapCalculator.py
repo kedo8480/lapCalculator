@@ -55,10 +55,7 @@ def topN(data, n):
     if len(data) < n:
         raise Exception("This data has less than " + str(n) + " drivers. Insufficient data set.")
 
-    print(data)
-
     sorted_averages = sorted(data.items(), key=lambda x: (x[1], x[0]))
-    print(sorted_averages)
 
     top_lap_times = []
     for i in range(0, n):
