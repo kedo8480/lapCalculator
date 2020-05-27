@@ -1,7 +1,9 @@
 import csv
 import os
 
-
+# Create the top driver list
+# Params: import filename, export filename, n for top n times
+# Returns: boolean value if exported results into file
 def getTopDrivers(import_file, export_file, n):
     raw_data = ingestCSVData(import_file)
     averages = calculateAvgs(raw_data)
